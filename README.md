@@ -1,47 +1,74 @@
-Cpp-Initializer
+# Cpp-Initializer
 
 A CLI tool for bootstrapping modern C++ projects, inspired by LeetCode setups. Built in Rust for cross-platform reliability.
 
-Overview
+## Overview
 
 Cpp-Initializer is a command-line utility that automates the creation of a complete C++ project structure, eliminating manual folder setup, file creation, and compiler configuration. Tailored for competitive programming (e.g., LeetCode) with pre-configured templates for main.cpp, CMakeLists.txt, and build scripts, it supports customizable options like project name, language standards (C++11/14/17/20), and testing frameworks. Open it in your editor (e.g., Neovim) and start coding---perfect for developers tired of repetitive boilerplate.
 
-Features
+## Features
 
-One-Command Setup: Generates folders, main.cpp, CMakeLists.txt, .gitignore, and build/run scripts.
+- **One-Command Setup**: Generates folders, main.cpp, CMakeLists.txt, .gitignore, and build/run scripts.
 
-LeetCode-Optimized: Includes fast I/O templates, vector/string utils, and sample test cases.
+- **LeetCode-Optimized**: Includes fast I/O templates, vector/string utils, and sample test cases.
 
-Customizable: Flags for project name, C++ standard, add-ons (e.g., Google Test, Valgrind integration).
+- **Customizable**: Flags for project name, C++ standard, add-ons (e.g., Google Test, Valgrind integration).
 
-Cross-Platform: Works on Linux/macOS/Windows via Rust's cargo.
+- **Cross-Platform**: Works on Linux/macOS/Windows via Rust's cargo.
 
-Minimal Overhead: No bloat---outputs a clean, compilable project ready for g++ or CMake.
+- **Minimal Overhead**: No bloat---outputs a clean, compilable project ready for g++ or CMake.
 
-How It Works
+## How It Works
 
-Install & Run: cargo install cpp-initializer then cpp-init my_project --std=c++17 --test.
+1\. **Install & Run**: `cargo install cpp-initializer` then `cpp-init my_project --std=c++17 --test`.
 
-Generation: Tool creates dir structure: src/main.cpp, tests/, build.sh, CMakeLists.txt.
+2\. **Generation**: Tool creates dir structure: `src/main.cpp`, `tests/`, `build.sh`, `CMakeLists.txt`.
 
-Customization: Parses flags; injects templates (e.g., #include <bits/stdc++.h> for LeetCode).
+3\. **Customization**: Parses flags; injects templates (e.g., #include <bits/stdc++.h> for LeetCode).
 
-Build/Run: Auto-generates scripts: ./build.sh compiles, ./run.sh executes.
+4\. **Build/Run**: Auto-generates scripts: `./build.sh` compiles, `./run.sh` executes.
 
-Events
+## Usage
+
+### Clone the Repo
+
+```bash
+git clone https://github.com/akshxdevs/cpp-initializer.git
+```
+### Test the Project
+
+```bash
+cpp init
+```
+
+## Example Flow
+
+- **Install Globally**: `cargo install --path .` (from cloned repo).
+
+- Run `cpp-init leet_project --leetcode --std=c++20` → Creates `/leet_project/` with main.cpp (fast I/O), CMakeLists.txt.
+
+- cd leet_project; mkdir build; cd build; cmake ..; make → Compiles executable.
+
+- Edit main.cpp, run `./main` → Outputs "Hello, LeetCode!".
+
+- **Alternate**: Add tests with `--test` → Includes sample_test.cpp.
+
+## Events
 
 N/A (CLI tool; logs via println! for progress: "Creating project...", "Adding LeetCode template...").
 
-Requirements
+## Requirements
 
-Rust 1.75+, Cargo
+- Rust 1.75+, Cargo
 
-CMake (optional, for generated projects)
+- CMake (optional, for generated projects)
 
-g++ (for building output)
+- g++ (for building output)
 
-License
+## License
 
 MIT
+
+---
 
 For more details, see the program code and the test suite.
